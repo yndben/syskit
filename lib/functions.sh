@@ -23,3 +23,13 @@ find_large_files() {
 	echo "=== Fichiers > ${size}Mo dans $dir ==="
 	find "$dir" -type f -size +${size}M -exec ls -lh {} \;
 }
+
+# Affiche un résumé du système (OS, Kernel, Uptime, RAM)
+sys_summary() {
+    echo "=== Résumé Système ==="
+    echo "OS: $(uname -s)"
+    echo "Kernel: $(uname -r)"
+    echo "Uptime: $(uptime -p)"
+    echo "Mémoire vive :"
+    free -h
+}
